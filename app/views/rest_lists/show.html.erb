@@ -39,6 +39,11 @@
   <strong>Menu link:</strong>
   <%= @rest_list.menu_link %>
 </p>
-
+<p>
+<strong>Map</strong>
+<br>
+<%= map_list %>
+<img src="http://maps.googleapis.com/maps/api/staticmap?center=730+N+Rush+St+Chicago+IL&size=640x400&style=element:labels|visibility:off&style=element:geometry.stroke|visibility:off&style=feature:landscape|element:geometry|saturation:-100&style=feature:water|saturation:-100|invert_lightness:true&key=" />
+</p>
 <%= link_to 'Edit', edit_rest_list_path(@rest_list) %> |
 <%= link_to 'Back', rest_lists_path %>

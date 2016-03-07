@@ -1,5 +1,5 @@
 class RestListsController < ApplicationController
-  before_action :set_rest_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_rest_list, only: [:show, :edit, :update, :destroy, :map_link]
 
   # GET /rest_lists
   # GET /rest_lists.json
@@ -60,6 +60,22 @@ class RestListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def map_link
+  	map_url_array = ["https://maps.googleapis.com/maps/api/staticmap?center="]
+  	map_url_array.push(:city.split(" ").join("+"))
+  	map_url_array.push("&zoom=13&size=400x600&markers=")
+  	map_url_array.push(:street_address.split(" ").join("+"))
+  	map_url_array.push("+")
+  	map_url_array.push(:city.split(" ").join("+"))
+  	map_url_array.push("+")
+  	map_url_array.push(:state)
+  	map_url_array.push("+")
+  	map_url_array.push(:zipcode)
+  	map_url_array.push(@api_key)
+  	map_url_string = map_url_array.join
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
