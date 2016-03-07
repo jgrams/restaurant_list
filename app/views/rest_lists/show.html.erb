@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rest name:</strong>
+  <%= @rest_list.rest_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @rest_list.description %>
+</p>
+
+<p>
+  <strong>Phone num:</strong>
+  <%= @rest_list.phone_num %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @rest_list.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @rest_list.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @rest_list.state %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @rest_list.zipcode %>
+</p>
+
+<p>
+  <strong>Menu link:</strong>
+  <%= @rest_list.menu_link %>
+</p>
+
+<%= link_to 'Edit', edit_rest_list_path(@rest_list) %> |
+<%= link_to 'Back', rest_lists_path %>

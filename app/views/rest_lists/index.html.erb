@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rest Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rest name</th>
+      <th>Description</th>
+      <th>Phone num</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Menu link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rest_lists.each do |rest_list| %>
+      <tr>
+        <td><%= rest_list.rest_name %></td>
+        <td><%= rest_list.description %></td>
+        <td><%= rest_list.phone_num %></td>
+        <td><%= rest_list.street_address %></td>
+        <td><%= rest_list.city %></td>
+        <td><%= rest_list.state %></td>
+        <td><%= rest_list.zipcode %></td>
+        <td><%= rest_list.menu_link %></td>
+        <td><%= link_to 'Show', rest_list %></td>
+        <td><%= link_to 'Edit', edit_rest_list_path(rest_list) %></td>
+        <td><%= link_to 'Destroy', rest_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rest list', new_rest_list_path %>
