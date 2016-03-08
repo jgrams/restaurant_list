@@ -10,6 +10,7 @@ class RestListsController < ApplicationController
   # GET /rest_lists/1
   # GET /rest_lists/1.json
   def show
+  	map_link
   end
 
   # GET /rest_lists/new
@@ -25,7 +26,7 @@ class RestListsController < ApplicationController
   # POST /rest_lists.json
   def create
     @rest_list = RestList.new(rest_list_params)
-
+	
     respond_to do |format|
       if @rest_list.save
         format.html { redirect_to @rest_list, notice: 'Rest list was successfully created.' }
@@ -62,18 +63,19 @@ class RestListsController < ApplicationController
   end
   
   def map_link
-  	map_url_array = ["https://maps.googleapis.com/maps/api/staticmap?center="]
-  	map_url_array.push(:city.split(" ").join("+"))
-  	map_url_array.push("&zoom=13&size=400x600&markers=")
-  	map_url_array.push(:street_address.split(" ").join("+"))
+  	map_url_array = ["https://maps.googleapis.com/maps/api/staticmap?markers="]
+  	map_url_array.push(@rest_list.street_address.split(" ").join("+"))
   	map_url_array.push("+")
-  	map_url_array.push(:city.split(" ").join("+"))
+  	map_url_array.push(@rest_list.city.split(" ").join("+"))
   	map_url_array.push("+")
-  	map_url_array.push(:state)
+  	map_url_array.push(@rest_list.state)
   	map_url_array.push("+")
-  	map_url_array.push(:zipcode)
-  	map_url_array.push(@api_key)
-  	map_url_string = map_url_array.join
+  	map_url_array.push(@rest_list.zipcode)
+  	map_url_array.push("+")
+  	map_url_array.push(@rest_list.city.split(" ").join("+"))
+  	map_url_array.push("&zoom=16&size=400x400&key=")
+  	map_url_array.push("AIzaSyB7wueyR1noQQAgeZx03oo2CwFHzDCZtFA")
+  	@map_url_string = map_url_array.join
   end
 
 

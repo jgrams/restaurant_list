@@ -17,21 +17,10 @@
 
 <p>
   <strong>Street address:</strong>
+  <br>
   <%= @rest_list.street_address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @rest_list.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @rest_list.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
+  <br>
+  <%= @rest_list.city %>, <%= @rest_list.state %>
   <%= @rest_list.zipcode %>
 </p>
 
@@ -41,9 +30,8 @@
 </p>
 <p>
 <strong>Map</strong>
-<br>
-<%= map_list %>
-<img src="http://maps.googleapis.com/maps/api/staticmap?center=730+N+Rush+St+Chicago+IL&size=640x400&style=element:labels|visibility:off&style=element:geometry.stroke|visibility:off&style=feature:landscape|element:geometry|saturation:-100&style=feature:water|saturation:-100|invert_lightness:true&key=" />
 </p>
+<%= image_tag("#{@map_url_string}", :alt => "Restaurant Map") %>
+<br>
 <%= link_to 'Edit', edit_rest_list_path(@rest_list) %> |
 <%= link_to 'Back', rest_lists_path %>
