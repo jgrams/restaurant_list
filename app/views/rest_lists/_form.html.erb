@@ -33,7 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.collection_select :state, RestList::STATES, :to_s, :to_s, 
+       :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :zipcode %><br>

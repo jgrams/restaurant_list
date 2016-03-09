@@ -33,5 +33,10 @@
 </p>
 <%= image_tag("#{@map_url_string}", :alt => "Restaurant Map") %>
 <br>
+<p>
+<strong>Yelp Rating</strong>
+</p>
+<%= @yelp_info.inspect %>
+
 <%= link_to 'Edit', edit_rest_list_path(@rest_list) %> |
 <%= link_to 'Back', rest_lists_path %>

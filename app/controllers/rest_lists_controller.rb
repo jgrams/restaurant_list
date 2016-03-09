@@ -1,5 +1,5 @@
 class RestListsController < ApplicationController
-  before_action :set_rest_list, only: [:show, :edit, :update, :destroy, :map_link]
+  before_action :set_rest_list, only: [:show, :edit, :update, :destroy, :map_link, :yelp_review]
 
   # GET /rest_lists
   # GET /rest_lists.json
@@ -11,6 +11,7 @@ class RestListsController < ApplicationController
   # GET /rest_lists/1.json
   def show
   	map_link
+  	yelp_review
   end
 
   # GET /rest_lists/new
