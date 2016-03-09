@@ -11,7 +11,6 @@ class RestListsController < ApplicationController
   # GET /rest_lists/1.json
   def show
   	map_link
-  	yelp_review
   end
 
   # GET /rest_lists/new
@@ -75,20 +74,10 @@ class RestListsController < ApplicationController
   	map_url_array.push("+")
   	map_url_array.push(@rest_list.city.split(" ").join("+"))
   	map_url_array.push("&zoom=16&size=400x400&key=")
-  	map_url_array.push("AIzaSyB7wueyR1noQQAgeZx03oo2CwFHzDCZtFA")
+  	map_url_array.push("#{Rails.application.secrets.google_map_api}")
   	@map_url_string = map_url_array.join
   end
 
-  def yelp_review
-    require 'yelp'
-	  Yelp.client.configure do |config|
-        config.consumer_key = YOUR_CONSUMER_KEY
-        config.consumer_secret = YOUR_CONSUMER_SECRET
-        config.token = YOUR_TOKEN
-        config.token_secret = YOUR_TOKEN_SECRET
-      end
-    @yelp_info = Yelp.client.phone_search(@rest_list.phone_num)
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
