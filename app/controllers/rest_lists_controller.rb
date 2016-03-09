@@ -79,6 +79,16 @@ class RestListsController < ApplicationController
   	@map_url_string = map_url_array.join
   end
 
+  def yelp_review
+    require 'yelp'
+	  Yelp.client.configure do |config|
+        config.consumer_key = YOUR_CONSUMER_KEY
+        config.consumer_secret = YOUR_CONSUMER_SECRET
+        config.token = YOUR_TOKEN
+        config.token_secret = YOUR_TOKEN_SECRET
+      end
+    @yelp_info = Yelp.client.phone_search(@rest_list.phone_num)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
