@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    label:
+      rest_list:
+        rest_name: Restaurant Name
+        phone_num: Phone Number
+        street_address: Street Address
+        menu_link: Menu Link
+        zipcode: Zip Code
