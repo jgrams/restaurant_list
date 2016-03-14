@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'owner/new'
+
+  get 'owner/index'
+
+  get 'owner/create'
+
+  get 'owner/view'
+
+  get 'owner/update'
+
+  get 'owner/destroy'
+
   resources :rest_lists
   root 'rest_lists#index'
   # The priority is based upon order of creation: first created -> highest priority.
