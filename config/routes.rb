@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :owners
   get 'owner/new'
 
   get 'owner/index'
