@@ -1,5 +1,6 @@
 class RestList < ActiveRecord::Base
   has_many :owners, through: :rest_owners 
+  has_many :rest_owners
   validates :rest_name, :presence => {:message => "Restaurant Name is a Required Field"}
   validates :phone_num, :presence => {:message => "Phone Number is a Required Field"}
   validates_format_of :phone_num, :with => /\A(\+1|1)?([2-9]\d\d[2-9]\d{6})\z/, message: 'This number isn\'t formatted properly, try it like 555-555-5555'
